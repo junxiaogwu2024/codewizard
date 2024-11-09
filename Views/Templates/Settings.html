@@ -1,0 +1,72 @@
+
+  <div class="container">
+      $if session['user']== None:
+        <h1>HelloWizard - You are not logged in</h1>
+      $else:
+        <h1>Welcome to Code Wizard by $session['user']['username']</h1>
+    <div class="row">
+        <div class="col">
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="#"><span class="mdi mdi-action-home"></span> Home Feed</a>
+                </li>
+                <li><a href="/profile"><span class="mdi mdi-action-account-circle"></span> Profile</a></li>
+                <li><a href="#"><span class="mdi mdi-communication-email"></span> Messages</a></li>
+                <li><a href="#"><span class="mdi mdi-social-people"></span> Friends</a></li>
+                <li><a href="#"><span class="mdi mdi-social-group"></span> Communities</a></li>
+                <li><a href="#"><span class="mdi mdi-notification-vibration"></span> Notifications</a></li>
+                <li class="separator"></li>
+                <li><a href="/settings"><span class="mdi mdi-action-settings"></span> Settings</a></li>
+                <li><a href="#"><span class="mdi mdi-action-help"></span> Help</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <div class="profile-header">
+                <div class="background-image" style="background: url($session['user']['background']);">
+                    <div class="avatar">
+                        <img src="$session['user']['avatar']" class="profile-avatar" width="100" height="100" />
+                        <h3 class="profile-username" color="" >$session['user']['username']</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-nav">
+              <nav class="nav navbar-expand-lg">
+                <a class="nav-link" href="/activities">Activities</a>
+                <a class="nav-link" href="/info">Info</a>
+                <a class="nav-link" href="/code">Code</a>
+                <a class="nav-link" href="/contact">Contact</a>
+              </nav>
+            </div>
+          <div class="grid">
+              <div class="grid-sizer"></div>
+
+                <div class="post-card extra-padding">
+                    <form id="settings-form" class="form-horizontal" role="form">
+                        <h2 class="title">Basic Info</h2>
+                        <span class="post-subtitle">Name</span>
+                        <p><input name="name" class="form-control no-border" value="$session['user']['username']" /></p>
+                        <span class="post-subtitle">About</span>
+                        <p><input name="about" class="form-control no-border" value="$session['user']['about']" /></p>
+                        <span class="card-subtitle">Hobbies</span>
+                        <p><input name="hobbies" class="form-control no-border" value="$session['user']['hobbies']" /></p>
+                  <button class="btn btn-info no-border btn-raised ripple-wave" type="submit">Save</button>
+              </form>
+            </div>
+              <div class="post-card extra-padding">
+                  <h2 class="title">Images</h2>
+                  <span class="post-subtitle">Avatar</span>
+                  <form id="avatar-upload" action="/upload-image/avatar" method="post" enctype="multipart/form-data">
+                      <input type="file" id="avatar" name="avatar" class="" />
+                      <button class="btn btn-info no-border btn-raised ripple-wave" type="submit">Save</button>
+                  </form>
+                  <span class="post-subtitle">Background</span>
+                  <form id="background-upload" action="/upload-image/background" method="post" enctype="multipart/form-data">
+                      <input type="file" name="background" class="" />
+                      <button class="btn btn-info no-border btn-raised ripple-wave" type="submit">Save</button>
+                  </form>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>

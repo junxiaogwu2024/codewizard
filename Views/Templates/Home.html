@@ -1,0 +1,41 @@
+$def with (posts)
+
+<div class="container">
+    $if session['user']== None:
+        <h1>HelloWizard - You are not logged in</h1>
+    $else:
+        <h1>Welcome to Code Wizard by $session['user']['username']</h1>
+        <div class="row">
+            <div class="col">
+                <ul class="menu-sidebar" data-collapsible="expandable">
+                    <li class="active"><a href="#"><span class="mdi mdi-action-home"></span> Home Feed</a></li>
+                    <li><a href="#"><span class="mdi mdi-action-account-circle"></span> Profile</a></li>
+                    <li><a href="#"><span class="mdi mdi-communication-email"></span> Messages</a></li>
+                    <li><a href="#"><span class="mdi mdi-social-people"></span> Friends</a></li>
+                    <li><a href="#"><span class="mdi mdi-social-group"></span> Communities</a></li>
+                    <li><a href="#"><span class="mdi mdi-notification-vibration"></span> Notifications</a></li>
+                    <li><a href="/settings"><span class="mdi mdi-action-settings"></span> Settings</a></li>
+                    <li><a href="#"><span class="mdi mdi-action-help"></span> Help</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="post-box">
+                    <form id="post-activity">
+                        <textarea name="content" class="post-input" placeholder="what's new, $session['user']['username']?"></textarea>
+                        <button id="post-button" class="btn btn-raised btn-info ripple-wave" type="submit" class="post-submit">Post</button>
+                    </form>
+                </div>
+
+                $for post in posts:
+                    <div class="post-card">
+                        <div class="header">
+                            <div class="avatar"></div>
+                            <a href="/profile">$post['user']['username']</a>
+                        </div>
+                        <div class="content">
+                            $post['content']
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div>

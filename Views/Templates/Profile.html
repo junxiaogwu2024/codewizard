@@ -1,0 +1,56 @@
+
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="#"><span class="mdi mdi-action-home"></span> Home Feed</a>
+                </li>
+                <li><a href="/profile"><span class="mdi mdi-action-account-circle"></span> Profile</a></li>
+                <li><a href="#"><span class="mdi mdi-communication-email"></span> Messages</a></li>
+                <li><a href="#"><span class="mdi mdi-social-people"></span> Friends</a></li>
+                <li><a href="#"><span class="mdi mdi-social-group"></span> Communities</a></li>
+                <li><a href="#"><span class="mdi mdi-notification-vibration"></span> Notifications</a></li>
+                <li class="separator"></li>
+                <li><a href="/settings"><span class="mdi mdi-action-settings"></span> Settings</a></li>
+                <li><a href="#"><span class="mdi mdi-action-help"></span> Help</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <div class="profile-header">
+                <div class="background-image" style="background: url($session['user']['background']);">
+                    <div class="avatar">
+                        <img src="$session['user']['avatar']" class="profile-avatar" width="100" height="100" />
+                        <h3 class="profile-username" color="" >$session['user']['username']</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-nav">
+              <nav class="nav navbar-expand-lg">
+                <a class="nav-link" href="/profile">Activities</a>
+                <a class="nav-link" href="/info">Info</a>
+                <a class="nav-link" href="/profile">Code</a>
+                <a class="nav-link" href="/profile">Contact</a>
+              </nav>
+            </div>
+          <div class="grid">
+            <div class="grid-sizer">
+                <div class="card padding">
+                    <div class="info-box">
+                        <h2 class="title">Basic Info</h2>
+                            <div class="info info-author">
+                                <h4 class="info-title">$session['user']['username']</h4>
+                                <ul>
+                                    <li class="info-item">$session['user']['about']</li>
+                                    <li class="info-item">$session['user']['hobbies']></li>
+                                    <li class="info-item">$session['user']['birthday']</li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
